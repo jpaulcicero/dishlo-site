@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dishlo — Capture. Plan. Shop. Cook.</title>
+  <meta name="description" content="Dishlo is your personal meal planning companion. Save recipes, plan meals, generate grocery lists, and cook with confidence — all in one place." />
+  <link rel="icon" type="image/png" href="./assets/Dishlo-logo.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Design Tokens ─────────────────────────────────────────── */
+    :root {
+      --green:        #264D2C;
+      --green-dark:   #1a3620;
+      --green-mid:    #4C6141;
+      --yellow:       #F5A623;
+      --yellow-light: #FBBF5E;
+      --beige:        #F5EBD7;
+      --beige-light:  #FBF4E8;
+      --text-dark:    #1e2e20;
+      --text-muted:   #5a6e5c;
+      --white:        #FFFFFF;
+      --card-border:  rgba(38,77,44,0.14);
+      --serif:        'Playfair Display', Georgia, serif;
+      --body:         'Lora', Georgia, serif;
+      --radius-sm:    10px;
+      --radius-md:    16px;
+      --radius-lg:    24px;
+      --radius-xl:    36px;
+    }
+
+    /* ── Reset ─────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--body);
+      background: var(--beige);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── Nav ────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
+      background: rgba(38,77,44,0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(245,166,35,0.18);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+    .nav-logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+    }
+    .nav-logo span {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--beige);
+      letter-spacing: 0.5px;
+    }
+    .nav-badge {
+      font-family: var(--body);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--green);
+      background: var(--yellow);
+      padding: 5px 14px;
+      border-radius: 99px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Hero ───────────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: var(--green);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle radial glow */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 55% at 50% 40%, rgba(245,166,35,0.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Decorative grain overlay */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .hero-logo {
+      width: 130px;
+      height: 130px;
+      border-radius: 28px;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+      animation: heroFadeUp 0.8s ease both;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 9vw, 6.5rem);
+      font-weight: 900;
+      color: var(--beige);
+      letter-spacing: 0.02em;
+      line-height: 1;
+      position: relative;
+      z-index: 1;
+      animation: heroFadeUp 0.8s 0.1s ease both;
+    }
+
+    .hero-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 22px 0;
+      position: relative;
+      z-index: 1;
+      animation: heroFadeUp 0.8s 0.2s ease both;
+    }
+    .hero-divider-line {
+      width: 64px;
+      height: 2px;
+      background: var(--yellow);
+      border-radius: 99px;
+    }
+    .hero-divider-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--yellow);
+    }
+
+    .hero-tagline {
+      font-family: var(--body);
+      font-size: clamp(1rem, 2.8vw, 1.3rem);
+      color: rgba(245,235,215,0.85);
+      line-height: 1.65;
+      max-width: 520px;
+      position: relative;
+      z-index: 1;
+      animation: heroFadeUp 0.8s 0.25s ease both;
+    }
+    .hero-tagline em {
+      color: var(--beige);
+      font-style: italic;
+    }
+
+    .hero-flow {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin: 32px 0;
+      position: relative;
+      z-index: 1;
+      animation: heroFadeUp 0.8s 0.35s ease both;
+    }
+    .flow-chip {
+      font-family: var(--serif);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--green);
+      background: var(--yellow);
+      padding: 6px 16px;
+      border-radius: 99px;
+      letter-spacing: 0.04em;
+    }
+    .flow-arrow {
+      color: rgba(245,235,215,0.4);
+      font-size: 1rem;
+    }
+
+    .hero-stores {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+      animation: heroFadeUp 0.8s 0.45s ease both;
+      margin-top: 8px;
+    }
+    .hero-stores-label {
+      font-family: var(--body);
+      font-size: 0.78rem;
+      color: rgba(245,235,215,0.55);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-style: italic;
+    }
+    .store-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .store-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 22px;
+      border-radius: var(--radius-md);
+      border: 1.5px solid rgba(245,166,35,0.4);
+      background: rgba(245,235,215,0.06);
+      color: var(--beige);
+      font-family: var(--body);
+      font-size: 0.88rem;
+      cursor: not-allowed;
+      opacity: 0.65;
+      transition: opacity 0.2s;
+    }
+    .store-btn svg { flex-shrink: 0; }
+    .store-btn-inner { text-align: left; }
+    .store-btn-inner small {
+      display: block;
+      font-size: 0.62rem;
+      opacity: 0.7;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .store-btn-inner strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    /* ── Section Base ──────────────────────────────────────────── */
+    section {
+      padding: 96px 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-family: var(--body);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 4vw, 2.9rem);
+      font-weight: 700;
+      color: var(--green);
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+    .section-body {
+      font-family: var(--body);
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 600px;
+    }
+
+    /* ── How It Works ───────────────────────────────────────────── */
+    .how-section {
+      background: var(--green-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .how-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(245,166,35,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .how-section .section-title { color: var(--beige); }
+    .how-section .section-label { color: var(--yellow); }
+    .how-section .section-body  { color: rgba(245,235,215,0.7); }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2px;
+      margin-top: 56px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(245,166,35,0.12);
+    }
+    .step {
+      background: rgba(255,255,255,0.03);
+      padding: 36px 28px;
+      border-right: 1px solid rgba(245,166,35,0.1);
+      transition: background 0.25s;
+    }
+    .step:last-child { border-right: none; }
+    .step:hover { background: rgba(245,166,35,0.06); }
+    .step-num {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: rgba(245,166,35,0.22);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+    .step-icon {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+    }
+    .step-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--beige);
+      margin-bottom: 10px;
+    }
+    .step-desc {
+      font-family: var(--body);
+      font-size: 0.88rem;
+      color: rgba(245,235,215,0.6);
+      line-height: 1.65;
+    }
+
+    /* ── Features ───────────────────────────────────────────────── */
+    .features-section {
+      background: var(--beige-light);
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 56px;
+    }
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 36px 32px;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--green), var(--yellow));
+      opacity: 0;
+      transition: opacity 0.22s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(38,77,44,0.12);
+    }
+    .feature-card:hover::before { opacity: 1; }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(38,77,44,0.07);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+    .feature-title {
+      font-family: var(--serif);
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+    .feature-desc {
+      font-family: var(--body);
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.72;
+    }
+    .feature-bullets {
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .feature-bullet {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-family: var(--body);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .feature-bullet::before {
+      content: '·';
+      color: var(--yellow);
+      font-size: 1.4rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: -1px;
+    }
+
+    /* ── Coming Soon Banner ─────────────────────────────────────── */
+    .coming-section {
+      background: var(--green);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .coming-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(245,166,35,0.1) 0%, transparent 65%);
+    }
+    .coming-section .section-title {
+      color: var(--beige);
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto 18px;
+    }
+    .coming-section .section-label {
+      position: relative;
+      z-index: 1;
+    }
+    .coming-section .section-body {
+      color: rgba(245,235,215,0.72);
+      position: relative;
+      z-index: 1;
+      margin: 0 auto 40px;
+    }
+    .coming-stores {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .coming-store-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      border: 1.5px solid rgba(245,166,35,0.35);
+      background: rgba(245,235,215,0.05);
+      color: var(--beige);
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+    .coming-store-btn svg { flex-shrink: 0; }
+    .coming-store-btn-inner { text-align: left; }
+    .coming-store-btn-inner small {
+      display: block;
+      font-size: 0.65rem;
+      opacity: 0.65;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-family: var(--body);
+    }
+    .coming-store-btn-inner strong {
+      display: block;
+      font-size: 1.05rem;
+      font-family: var(--serif);
+      font-weight: 600;
+    }
+    .notify-note {
+      font-family: var(--body);
+      font-style: italic;
+      font-size: 0.82rem;
+      color: rgba(245,235,215,0.45);
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Footer ─────────────────────────────────────────────────── */
+    footer {
+      background: var(--green-dark);
+      padding: 40px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      border-top: 1px solid rgba(245,166,35,0.12);
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-logo img {
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+    }
+    .footer-logo span {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--beige);
+    }
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .footer-links a {
+      font-family: var(--body);
+      font-size: 0.82rem;
+      color: rgba(245,235,215,0.5);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--yellow); }
+    .footer-copy {
+      font-family: var(--body);
+      font-size: 0.76rem;
+      color: rgba(245,235,215,0.3);
+      text-align: center;
+    }
+
+    /* ── Animations ─────────────────────────────────────────────── */
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 700px) {
+      nav { padding: 14px 20px; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .step { border-right: none; border-bottom: 1px solid rgba(245,166,35,0.1); }
+      .step:last-child { border-bottom: none; }
+      .features-grid { grid-template-columns: 1fr; }
+      .store-btns { flex-direction: column; align-items: center; }
+    }
+    @media (max-width: 480px) {
+      .steps-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ─────────────────────────────────────────── -->
+  <nav>
+    <div class="nav-logo">
+      <img src="./assets/Dishlo-logo.png" alt="Dishlo logo" />
+      <span>Dishlo</span>
+    </div>
+    <span class="nav-badge">Coming Soon</span>
+  </nav>
+
+  <!-- ── Hero ───────────────────────────────────────────────── -->
+  <section class="hero">
+    <img class="hero-logo" src="./assets/Dishlo-logo.png" alt="Dishlo" />
+
+    <h1>Dishlo</h1>
+
+    <div class="hero-divider">
+      <div class="hero-divider-line"></div>
+      <div class="hero-divider-dot"></div>
+      <div class="hero-divider-line"></div>
+    </div>
+
+    <p class="hero-tagline">
+      Capture. Plan. Shop. Cook.<br/>
+      <em>All in one place.</em>
+    </p>
+
+    <div class="hero-flow">
+      <span class="flow-chip">Save</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-chip">Plan</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-chip">Generate</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-chip">Shop</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-chip">Cook</span>
+    </div>
+
+    <div class="hero-stores">
+      <span class="hero-stores-label">Available soon on</span>
+      <div class="store-btns">
+        <div class="store-btn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <div class="store-btn-inner">
+            <small>Download on the</small>
+            <strong>App Store</strong>
+          </div>
+        </div>
+        <div class="store-btn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.16.63.24.97.23.4 0 .82-.12 1.22-.35l13.2-7.57-2.92-2.93-12.47 10.62zm-1.4-20.45C1.46 3.7 1.25 4.2 1.25 4.85v14.3c0 .65.21 1.15.53 1.54l.07.07L9.7 12.92v-.2L1.85 3.24l-.07.07zm18.25 8.17l-2.45-1.41-3.26 3.26 3.26 3.26 2.47-1.41c.7-.4 1.1-.93 1.1-1.85s-.42-1.44-1.12-1.85zM4.15.33L17.35 7.9l-2.92 2.92L1.96 1.24C2.36.99 2.78.87 3.18.87c.34 0 .67.08.97.24v-.78z"/></svg>
+          <div class="store-btn-inner">
+            <small>Get it on</small>
+            <strong>Google Play</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How It Works ────────────────────────────────────────── -->
+  <section class="how-section">
+    <div class="container">
+      <div class="section-label reveal">The Flow</div>
+      <h2 class="section-title reveal reveal-delay-1">Everything from recipe to table,<br/>in five simple steps.</h2>
+      <p class="section-body reveal reveal-delay-2">
+        Dishlo is built around a single, seamless workflow. Whether you're saving a recipe from a cookbook or building a week of meals for your family, the path is always the same.
+      </p>
+
+      <div class="steps-grid reveal reveal-delay-3">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-icon">📸</div>
+          <div class="step-title">Save</div>
+          <p class="step-desc">Capture any recipe — from a screenshot, a photo of a cookbook page, pasted text, or a PDF. Dishlo extracts ingredients, instructions, and servings automatically.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-icon">📅</div>
+          <div class="step-title">Plan</div>
+          <p class="step-desc">Assign recipes to days and meal times on your rolling home calendar. Breakfast, lunch, dinner, snack — plan as far ahead as you like.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-icon">🛒</div>
+          <div class="step-title">Generate</div>
+          <p class="step-desc">Pick a date range and tap Generate List. Dishlo combines every ingredient from your planned meals into a single, organized grocery list.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div class="step-icon">🏪</div>
+          <div class="step-title">Shop</div>
+          <p class="step-desc">Open Shop Mode for a large, easy-to-read list. Tap items to check them off aisle by aisle. The screen stays awake so you never have to unlock mid-shop.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">05</div>
+          <div class="step-icon">🍳</div>
+          <div class="step-title">Cook</div>
+          <p class="step-desc">Follow step-by-step instructions in Cook Mode with built-in timers, a unit converter, and a servings scaler — all without touching the screen between steps.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Features ───────────────────────────────────────────── -->
+  <section class="features-section">
+    <div class="container">
+      <div class="section-label reveal">Features</div>
+      <h2 class="section-title reveal reveal-delay-1">Built for real cooks,<br/>real families, real life.</h2>
+      <p class="section-body reveal reveal-delay-2">
+        Every feature in Dishlo exists to reduce friction between a great recipe and a great meal.
+      </p>
+
+      <div class="features-grid">
+
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">📖</div>
+          <div class="feature-title">Recipe Library</div>
+          <p class="feature-desc">Your personal recipe collection, always with you. Search, filter by type, and browse alphabetically.</p>
+          <div class="feature-bullets">
+            <div class="feature-bullet">Import from a screenshot, photo, or PDF — Dishlo reads it</div>
+            <div class="feature-bullet">Paste text from anywhere and Dishlo parses it instantly</div>
+            <div class="feature-bullet">AI-generated concept image for every recipe</div>
+            <div class="feature-bullet">Estimated nutrition per serving (protein, carbs, fat, calories)</div>
+            <div class="feature-bullet">Tag and filter recipes your way</div>
+          </div>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">📅</div>
+          <div class="feature-title">Meal Planning</div>
+          <p class="feature-desc">A rolling weekly calendar right on your home screen. Meal planning that actually stays up to date.</p>
+          <div class="feature-bullets">
+            <div class="feature-bullet">Assign any recipe to Breakfast, Lunch, Dinner, or Snack</div>
+            <div class="feature-bullet">Set servings per planned meal</div>
+            <div class="feature-bullet">Quick actions to cook, edit, or remove any planned meal</div>
+            <div class="feature-bullet">Visual calendar so the week is always in view</div>
+          </div>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-icon">🛒</div>
+          <div class="feature-title">Smart Grocery Lists</div>
+          <p class="feature-desc">Choose a date range, tap Generate, and your grocery list builds itself from every planned meal.</p>
+          <div class="feature-bullets">
+            <div class="feature-bullet">Ingredients automatically combined and categorized</div>
+            <div class="feature-bullet">Pantry Check — hide items you already have at home</div>
+            <div class="feature-bullet">See which meals contributed to each item</div>
+            <div class="feature-bullet">Add extras or one-off items at any time</div>
+            <div class="feature-bullet">Drag-and-drop category reordering for your store's layout</div>
+          </div>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">🏪</div>
+          <div class="feature-title">Shop Mode</div>
+          <p class="feature-desc">A distraction-free shopping interface designed to be used with one hand mid-aisle.</p>
+          <div class="feature-bullets">
+            <div class="feature-bullet">Large, legible text — adjustable S, M, L, XL font sizes</div>
+            <div class="feature-bullet">Tap to check off items as you go</div>
+            <div class="feature-bullet">Screen stay-awake — no unlocking between aisles</div>
+            <div class="feature-bullet">Checked items visually separate from what's left</div>
+          </div>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">🍳</div>
+          <div class="feature-title">Cook Mode</div>
+          <p class="feature-desc">A hands-free cooking companion that keeps your screen readable while your hands are full.</p>
+          <div class="feature-bullets">
+            <div class="feature-bullet">Step-by-step instructions with one-tap navigation</div>
+            <div class="feature-bullet">Side-arrow scrolling — swipe-free between steps</div>
+            <div class="feature-bullet">Built-in timer with presets and custom durations</div>
+            <div class="feature-bullet">Unit converter — no more mental math mid-recipe</div>
+            <div class="feature-bullet">Live servings scaler adjusts ingredient amounts</div>
+          </div>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-icon">🔄</div>
+          <div class="feature-title">Your Items & Sync</div>
+          <p class="feature-desc">Manage a persistent pantry list and keep everything synced across devices.</p>
+          <div class="feature-bullets">
+            <div class="feature-bullet">Your Items — a running list of staples and pantry inventory</div>
+            <div class="feature-bullet">Automatic background sync when you come online</div>
+            <div class="feature-bullet">Offline-first — works without a connection</div>
+            <div class="feature-bullet">Secure account with email &amp; password</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Coming Soon ─────────────────────────────────────────── -->
+  <section class="coming-section">
+    <div class="container">
+      <div class="section-label reveal">Coming Soon</div>
+      <h2 class="section-title reveal reveal-delay-1">Dishlo is on its way to<br/>the App Store &amp; Google Play.</h2>
+      <p class="section-body reveal reveal-delay-2">
+        We're putting the finishing touches on Dishlo before launch. Stay tuned — the full meal planning experience is almost here.
+      </p>
+
+      <div class="coming-stores reveal reveal-delay-3">
+        <div class="coming-store-btn">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <div class="coming-store-btn-inner">
+            <small>Download on the</small>
+            <strong>App Store</strong>
+          </div>
+        </div>
+        <div class="coming-store-btn">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.16.63.24.97.23.4 0 .82-.12 1.22-.35l13.2-7.57-2.92-2.93-12.47 10.62zm-1.4-20.45C1.46 3.7 1.25 4.2 1.25 4.85v14.3c0 .65.21 1.15.53 1.54l.07.07L9.7 12.92v-.2L1.85 3.24l-.07.07zm18.25 8.17l-2.45-1.41-3.26 3.26 3.26 3.26 2.47-1.41c.7-.4 1.1-.93 1.1-1.85s-.42-1.44-1.12-1.85zM4.15.33L17.35 7.9l-2.92 2.92L1.96 1.24C2.36.99 2.78.87 3.18.87c.34 0 .67.08.97.24v-.78z"/></svg>
+          <div class="coming-store-btn-inner">
+            <small>Get it on</small>
+            <strong>Google Play</strong>
+          </div>
+        </div>
+      </div>
+
+      <p class="notify-note reveal">Buttons will activate at launch — check back soon.</p>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-logo">
+      <img src="./assets/Dishlo-logo.png" alt="Dishlo" />
+      <span>Dishlo</span>
+    </div>
+    <div class="footer-links">
+      <a href="./privacy.html">Privacy Policy</a>
+      <a href="./terms.html">Terms of Service</a>
+      <a href="mailto:hello@dishlo.com">Contact</a>
+    </div>
+    <p class="footer-copy">
+      &copy; <span id="year"></span> Dishlo. All rights reserved.<br/>
+      <span style="opacity:0.5; font-size:0.7rem;">Capture. Plan. Shop. Cook.</span>
+    </p>
+  </footer>
+
+  <script>
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
