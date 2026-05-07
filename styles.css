@@ -1,0 +1,291 @@
+/*
+ * styles.css — Dishlo Website
+ * Shared design tokens, resets, and components used across all pages.
+ * Page-specific styles live in each HTML file's own <style> block.
+ */
+
+/* ── Design Tokens ──────────────────────────────────────────────── */
+:root {
+  /* Brand colors — from theme.ts */
+  --green:        #264D2C;   /* GREEN */
+  --green-dark:   #1a3620;   /* derived dark surface */
+  --green-mid:    #4C6141;   /* CARD_GREEN */
+  --yellow:       #F5A623;   /* YELLOW */
+  --yellow-light: #FBBF5E;
+  --beige:        #F5EBD7;   /* BEIGE */
+  --beige-light:  #FBF4E8;   /* RECIPE_CARD_BG */
+  --text-dark:    #1e2e20;   /* TEXT_DARK (green-tinted) */
+  --text-muted:   #5a6e5c;   /* MUTED_TEXT */
+  --white:        #FFFFFF;
+  --card-border:  rgba(38,77,44,0.14); /* CARD_BORDER */
+
+  /* Typography — matches theme.ts FAMILY: 'serif' */
+  --serif: 'Playfair Display', Georgia, serif;
+  --body:  'Lora', Georgia, serif;
+
+  /* Radii — from theme.ts RADIUS */
+  --radius-sm: 10px;  /* SM */
+  --radius-md: 16px;  /* MD/LG */
+  --radius-lg: 24px;
+  --radius-xl: 36px;  /* XL */
+}
+
+/* ── Reset ──────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--body);
+  background: var(--beige-light);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+a {
+  color: var(--green);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--yellow);
+}
+
+/* ── Navigation ─────────────────────────────────────────────────── */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+  background: var(--green-dark);
+  border-bottom: 1px solid rgba(245,166,35,0.15);
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+}
+.nav-logo img {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+}
+.nav-logo span {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--beige);
+  letter-spacing: 0.5px;
+}
+/* "Coming Soon" pill — used on home page nav */
+.nav-badge {
+  font-family: var(--body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--green);
+  background: var(--yellow);
+  padding: 5px 14px;
+  border-radius: 99px;
+  letter-spacing: 0.04em;
+}
+/* "← Back to Home" link — used on legal pages */
+.nav-back {
+  font-family: var(--body);
+  font-size: 0.82rem;
+  color: rgba(245,235,215,0.55);
+  transition: color 0.2s;
+}
+.nav-back:hover {
+  color: var(--yellow);
+}
+
+/* ── Page Header (legal pages) ──────────────────────────────────── */
+.page-header {
+  background: var(--green);
+  padding: 64px 40px 52px;
+  text-align: center;
+}
+.page-header h1 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--beige);
+  margin-bottom: 12px;
+}
+.page-header p {
+  font-family: var(--body);
+  font-size: 0.9rem;
+  color: rgba(245,235,215,0.6);
+  font-style: italic;
+}
+
+/* ── Legal Content Area (privacy + terms) ───────────────────────── */
+.content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+.content h2 {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--green);
+  margin: 44px 0 12px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(38,77,44,0.12);
+}
+.content h2:first-of-type {
+  margin-top: 0;
+  border-top: none;
+}
+.content h3 {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 24px 0 8px;
+}
+.content p {
+  font-family: var(--body);
+  font-size: 0.97rem;
+  line-height: 1.78;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+.content ul {
+  margin: 8px 0 14px 20px;
+}
+.content ul li {
+  font-family: var(--body);
+  font-size: 0.97rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.content strong {
+  color: var(--text-dark);
+}
+.effective-date {
+  display: inline-block;
+  background: rgba(38,77,44,0.07);
+  border-left: 3px solid var(--yellow);
+  padding: 10px 18px;
+  border-radius: 0 8px 8px 0;
+  font-family: var(--body);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+  font-style: italic;
+}
+
+/* ── Third-Party Services Table (privacy page) ──────────────────── */
+.services-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 20px;
+  font-family: var(--body);
+  font-size: 0.88rem;
+}
+.services-table th {
+  background: rgba(38,77,44,0.07);
+  color: var(--green);
+  font-weight: 600;
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 2px solid rgba(38,77,44,0.15);
+}
+.services-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(38,77,44,0.08);
+  color: var(--text-muted);
+  vertical-align: top;
+}
+.services-table tr:last-child td {
+  border-bottom: none;
+}
+.services-table a {
+  font-size: 0.82rem;
+  word-break: break-all;
+  text-decoration: underline;
+}
+
+/* ── Footer ─────────────────────────────────────────────────────── */
+footer {
+  background: var(--green-dark);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid rgba(245,166,35,0.12);
+}
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-logo img {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+}
+.footer-logo span {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--beige);
+}
+.footer-links {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.footer-links a {
+  font-family: var(--body);
+  font-size: 0.82rem;
+  color: rgba(245,235,215,0.5);
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: var(--yellow);
+}
+.footer-copy {
+  font-family: var(--body);
+  font-size: 0.76rem;
+  color: rgba(245,235,215,0.3);
+  text-align: center;
+}
+
+/* ── Scroll Reveal Animation ────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  nav { padding: 14px 20px; }
+  .page-header { padding: 48px 24px 40px; }
+  .services-table th,
+  .services-table td { padding: 8px 10px; }
+  footer { padding: 36px 24px; }
+}
