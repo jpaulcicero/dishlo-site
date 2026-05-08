@@ -3,203 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Privacy Policy — Dishlo</title>
   <meta name="description" content="Privacy Policy for the Dishlo mobile application." />
+
   <link rel="icon" type="image/png" href="./assets/Dishlo-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --green:      #264D2C;
-      --green-dark: #1a3620;
-      --yellow:     #F5A623;
-      --beige:      #F5EBD7;
-      --beige-light:#FBF4E8;
-      --text-dark:  #1e2e20;
-      --text-muted: #5a6e5c;
-      --white:      #FFFFFF;
-      --serif:      'Playfair Display', Georgia, serif;
-      --body:       'Lora', Georgia, serif;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: var(--body);
-      background: var(--beige-light);
-      color: var(--text-dark);
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: var(--green); text-decoration: underline; }
-    a:hover { color: var(--yellow); }
-
-    /* Nav */
-    nav {
-      background: var(--green-dark);
-      padding: 16px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(245,166,35,0.15);
-    }
-    .nav-logo {
-      display: flex; align-items: center; gap: 10px;
-      text-decoration: none;
-    }
-    .nav-logo img { width: 32px; height: 32px; border-radius: 7px; }
-    .nav-logo span {
-      font-family: var(--serif); font-size: 1.2rem; font-weight: 700;
-      color: var(--beige);
-    }
-    .nav-back {
-      font-family: var(--body); font-size: 0.82rem;
-      color: rgba(245,235,215,0.55);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-back:hover { color: var(--yellow); }
-
-    /* Page Header */
-    .page-header {
-      background: var(--green);
-      padding: 64px 40px 52px;
-      text-align: center;
-    }
-    .page-header h1 {
-      font-family: var(--serif);
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 700;
-      color: var(--beige);
-      margin-bottom: 12px;
-    }
-    .page-header p {
-      font-family: var(--body);
-      font-size: 0.9rem;
-      color: rgba(245,235,215,0.6);
-      font-style: italic;
-    }
-
-    /* Content */
-    .content {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 56px 24px 80px;
-    }
-    .content h2 {
-      font-family: var(--serif);
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--green);
-      margin: 44px 0 12px;
-      padding-top: 8px;
-      border-top: 1px solid rgba(38,77,44,0.12);
-    }
-    .content h2:first-of-type { margin-top: 0; border-top: none; }
-    .content h3 {
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--text-dark);
-      margin: 24px 0 8px;
-    }
-    .content p {
-      font-family: var(--body);
-      font-size: 0.97rem;
-      line-height: 1.78;
-      color: var(--text-muted);
-      margin-bottom: 14px;
-    }
-    .content ul {
-      margin: 8px 0 14px 20px;
-    }
-    .content ul li {
-      font-family: var(--body);
-      font-size: 0.97rem;
-      line-height: 1.75;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-    .content strong { color: var(--text-dark); }
-
-    .effective-date {
-      display: inline-block;
-      background: rgba(38,77,44,0.07);
-      border-left: 3px solid var(--yellow);
-      padding: 10px 18px;
-      border-radius: 0 8px 8px 0;
-      font-family: var(--body);
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 36px;
-      font-style: italic;
-    }
-
-    /* Third-party services table */
-    .services-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 16px 0 20px;
-      font-family: var(--body);
-      font-size: 0.88rem;
-    }
-    .services-table th {
-      background: rgba(38,77,44,0.07);
-      color: var(--green);
-      font-weight: 600;
-      text-align: left;
-      padding: 10px 14px;
-      border-bottom: 2px solid rgba(38,77,44,0.15);
-    }
-    .services-table td {
-      padding: 10px 14px;
-      border-bottom: 1px solid rgba(38,77,44,0.08);
-      color: var(--text-muted);
-      vertical-align: top;
-    }
-    .services-table tr:last-child td { border-bottom: none; }
-    .services-table a { font-size: 0.82rem; word-break: break-all; }
-
-    /* Footer */
-    footer {
-      background: var(--green-dark);
-      padding: 36px 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-      border-top: 1px solid rgba(245,166,35,0.12);
-    }
-    .footer-links {
-      display: flex; gap: 24px; flex-wrap: wrap; justify-content: center;
-    }
-    .footer-links a {
-      font-family: var(--body); font-size: 0.82rem;
-      color: rgba(245,235,215,0.5);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--yellow); }
-    .footer-copy {
-      font-family: var(--body); font-size: 0.76rem;
-      color: rgba(245,235,215,0.3); text-align: center;
-    }
-
-    @media (max-width: 600px) {
-      nav { padding: 14px 20px; }
-      .page-header { padding: 48px 24px 40px; }
-      .services-table th,
-      .services-table td { padding: 8px 10px; }
-    }
-  </style>
+  <link rel="stylesheet" href="./styles.css" />
 </head>
-<body>
 
-  <nav>
+<body>
+  <nav class="legal-nav">
     <a class="nav-logo" href="./index.html">
       <img src="./assets/Dishlo-logo.png" alt="Dishlo" />
       <span>Dishlo</span>
     </a>
-    <a class="nav-back" href="./index.html">← Back to Home</a>
+
+    <div class="nav-menu">
+      <button class="nav-menu-btn" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-dropdown" id="menuDropdown">
+        <a href="./index.html">Home</a>
+        <a href="./privacy.html" class="nav-active">Privacy Policy</a>
+        <a href="./terms.html">Terms of Service</a>
+      </div>
+    </div>
   </nav>
 
   <div class="page-header">
@@ -207,12 +41,14 @@
     <p>How Dishlo collects, uses, and protects your information.</p>
   </div>
 
-  <div class="content">
+  <main class="content">
     <span class="effective-date">Last Updated: April 8, 2026</span>
 
     <h2>1. Introduction</h2>
     <p>
-      Dishlo ("we," "our," or "us") is a mobile application that helps you save recipes, plan meals, and generate grocery lists. This Privacy Policy explains what information we collect, how we use it, and your rights regarding your data.
+      Dishlo ("we," "our," or "us") is a mobile application that helps you save recipes,
+      plan meals, and generate grocery lists. This Privacy Policy explains what information
+      we collect, how we use it, and your rights regarding your data.
     </p>
     <p>
       By creating an account and using Dishlo, you agree to the practices described in this policy.
@@ -230,39 +66,49 @@
     <h3>2.2 Content You Create</h3>
     <p>All content you create inside Dishlo is stored and associated with your account:</p>
     <ul>
-      <li><strong>Recipes</strong> — names, ingredients, instructions, serving sizes, recipe type, nutrition information, source URLs (if imported from the web), and AI-generated food images</li>
-      <li><strong>Meal plans</strong> — dates, meal times (breakfast, lunch, dinner, snack), and the recipes assigned to each slot</li>
-      <li><strong>Grocery lists</strong> — items, quantities, units, categories, and check-off status</li>
+      <li><strong>Recipes</strong> — names, ingredients, instructions, serving sizes, recipe type, nutrition information, source URLs used as references, and AI-generated concept images</li>
+      <li><strong>Meal plans</strong> — dates, meal times, servings, and the recipes assigned to each slot</li>
+      <li><strong>Grocery lists</strong> — items, quantities, units, categories, notes, and check-off status</li>
       <li><strong>Recipe tags</strong> — labels you create to organize your recipes</li>
       <li><strong>Your Items</strong> — a personal catalog of custom grocery items you've added</li>
     </ul>
 
     <h3>2.3 Uploaded Files</h3>
     <p>
-      If you use the scan-a-recipe feature, you may upload photos or PDF files of physical recipes. These files are temporarily processed to perform text extraction and are not retained beyond that process.
+      If you use the scan-a-recipe feature, you may upload screenshots, photos, or PDF files
+      containing recipe content. These files are temporarily processed to perform text extraction
+      and are not retained beyond that process.
     </p>
 
     <h3>2.4 Automatically Collected Information</h3>
     <p>
-      We do not collect device identifiers, location data, or behavioral analytics beyond what is necessary to operate the app.
+      We do not collect device identifiers, location data, or behavioral analytics beyond what is
+      necessary to operate the app.
     </p>
 
     <h2>3. How We Use Your Information</h2>
     <p>We use your information solely to provide Dishlo's features:</p>
     <ul>
       <li><strong>To operate your account</strong> — authenticate you, store your data, and sync it across your devices</li>
-      <li><strong>To parse recipes</strong> — when you add a recipe by pasting text or a URL, we send that content to OpenAI's API to extract structured recipe data (ingredients, instructions, servings, etc.)</li>
-      <li><strong>To generate recipe images</strong> — we send a description of your recipe to Google's Gemini API to generate a representative food photo</li>
-      <li><strong>To extract text from photos</strong> — when you photograph a recipe, we send the image to Google Cloud Vision to read the text</li>
-      <li><strong>To generate grocery lists</strong> — we aggregate ingredients from your meal plan entirely within our own servers; no AI is involved in this process</li>
+      <li><strong>To parse recipes</strong> — when you paste or type actual recipe text, we send that content to OpenAI's API to extract structured recipe data</li>
+      <li><strong>To extract text from photos and PDFs</strong> — when you upload a screenshot, photo, or PDF, we send the file to Google Cloud Vision to read the text</li>
+      <li><strong>To generate recipe images</strong> — we send a description of your recipe to Google's Gemini API to generate an original concept image</li>
+      <li><strong>To generate grocery lists</strong> — we aggregate ingredients from your planned meals within our own servers; no AI is involved in this process</li>
       <li><strong>To send transactional emails</strong> — verification emails and password-reset links via Firebase</li>
     </ul>
-    <p>We do not use your data for advertising. We do not sell your data to third parties.</p>
+
+    <p>
+      Dishlo does not scrape websites or fetch recipe content from URLs. Source URLs are saved only
+      as references to help you remember where a recipe came from.
+    </p>
+
+    <p>
+      We do not use your data for advertising. We do not sell your data to third parties.
+    </p>
 
     <h2>4. Third-Party Services</h2>
-    <p>
-      Dishlo uses the following third-party services to function. Each has its own privacy policy:
-    </p>
+    <p>Dishlo uses the following third-party services to function. Each has its own privacy policy:</p>
+
     <table class="services-table">
       <thead>
         <tr>
@@ -271,83 +117,98 @@
           <th>Privacy Policy</th>
         </tr>
       </thead>
+
       <tbody>
         <tr>
           <td><strong>Google Firebase</strong></td>
-          <td>Authentication, database (Firestore), and file storage</td>
+          <td>Authentication, database, and file storage</td>
           <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a></td>
         </tr>
+
         <tr>
           <td><strong>OpenAI</strong></td>
           <td>Recipe text parsing</td>
           <td><a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">openai.com/policies/privacy-policy</a></td>
         </tr>
+
         <tr>
           <td><strong>Google Gemini</strong></td>
-          <td>Recipe image generation</td>
+          <td>Recipe concept image generation</td>
           <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td>
         </tr>
+
         <tr>
           <td><strong>Google Cloud Vision</strong></td>
-          <td>OCR text extraction from photos and PDFs</td>
+          <td>OCR text extraction from screenshots, photos, and PDFs</td>
           <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td>
         </tr>
       </tbody>
     </table>
+
     <p>
-      When you use features that involve these services, relevant data (recipe text, image descriptions, or uploaded photos) is transmitted to them. We do not share your account information (name or email) with any of these providers.
+      When you use features that involve these services, relevant data such as recipe text,
+      generated recipe descriptions, or uploaded files is transmitted to them. We do not share
+      your account information, such as your name or email address, with these providers for
+      those AI or OCR processing features.
     </p>
 
     <h2>5. Data Storage and Security</h2>
     <ul>
-      <li>Your recipes, meal plans, grocery lists, and profile are stored in Google Firestore, hosted in Google Cloud.</li>
-      <li>A local copy of your data is also cached on your device (using SQLite and device storage) to allow offline use. This data is private to your device and your account.</li>
-      <li>Uploaded photos used for OCR are temporarily stored in Google Cloud Storage and deleted after text extraction is complete.</li>
-      <li>AI-generated recipe images are stored in Google Cloud Storage and linked to your recipe.</li>
+      <li>Your recipes, meal plans, grocery lists, tags, and profile are stored in Google Firestore, hosted in Google Cloud.</li>
+      <li>A local copy of your data may be cached on your device to allow offline use. This data is private to your device and your account.</li>
+      <li>Uploaded photos and PDFs used for OCR are temporarily stored and deleted after text extraction is complete.</li>
+      <li>AI-generated recipe concept images are stored in Google Cloud Storage and linked to your recipe.</li>
       <li>All communication between the app and our servers uses HTTPS encryption.</li>
       <li>Access to your data is restricted to your account only. No other Dishlo user can see your recipes, meal plans, or grocery lists.</li>
     </ul>
 
     <h2>6. Data Retention</h2>
     <p>
-      Your data is retained for as long as your account is active. You can delete individual recipes, meal plans, and grocery lists at any time from within the app.
+      Your data is retained for as long as your account is active. You can delete individual recipes,
+      meal plans, and grocery lists at any time from within the app.
     </p>
     <p>
-      To request deletion of your entire account and all associated data, contact us at the email address listed in Section 10. We will process account deletion requests within 30 days.
+      To request deletion of your entire account and all associated data, contact us at the email
+      address listed in Section 10. We will process account deletion requests within 30 days.
     </p>
 
     <h2>7. Children's Privacy</h2>
     <p>
-      Dishlo is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided us with personal information, please contact us and we will delete it promptly.
+      Dishlo is not directed at children under the age of 13. We do not knowingly collect personal
+      information from children under 13. If you believe a child under 13 has provided us with
+      personal information, please contact us and we will delete it promptly.
     </p>
 
     <h2>8. Your Rights</h2>
     <p>Depending on your location, you may have the right to:</p>
     <ul>
       <li><strong>Access</strong> the personal data we hold about you</li>
-      <li><strong>Correct</strong> inaccurate information (you can update your name in the app's Account settings)</li>
-      <li><strong>Delete</strong> your data (see Section 6)</li>
+      <li><strong>Correct</strong> inaccurate information</li>
+      <li><strong>Delete</strong> your data</li>
       <li><strong>Object to or restrict</strong> certain processing</li>
     </ul>
     <p>To exercise any of these rights, contact us using the information in Section 10.</p>
 
     <h2>9. Changes to This Policy</h2>
     <p>
-      We may update this Privacy Policy from time to time. When we do, we will update the "Last updated" date at the top of this page. If changes are material, we will notify you within the app. Continued use of Dishlo after changes take effect constitutes acceptance of the updated policy.
+      We may update this Privacy Policy from time to time. When we do, we will update the
+      "Last Updated" date at the top of this page. If changes are material, we will notify you
+      within the app. Continued use of Dishlo after changes take effect constitutes acceptance
+      of the updated policy.
     </p>
 
     <h2>10. Contact Us</h2>
+    <p>If you have questions or concerns about this Privacy Policy, or to request data deletion, please contact:</p>
+
     <p>
-      If you have questions or concerns about this Privacy Policy, or to request data deletion, please contact:
-    </p>
-    <p>
-      <strong>Dishlo</strong><br/>
+      <strong>Dishlo</strong><br />
       Email: <a href="mailto:dishlo.app@gmail.com">dishlo.app@gmail.com</a>
     </p>
+
     <p style="margin-top: 32px; font-style: italic; font-size: 0.88rem; color: var(--text-muted);">
-      This policy applies to the Dishlo mobile application available on Google Play and the Apple App Store.
+      This policy applies to the Dishlo mobile application.
     </p>
-  </div>
+  </main>
 
   <footer>
     <div class="footer-links">
@@ -356,9 +217,28 @@
       <a href="./terms.html">Terms of Service</a>
       <a href="mailto:dishlo.app@gmail.com">Contact</a>
     </div>
+
     <p class="footer-copy">&copy; <span id="year"></span> Dishlo. All rights reserved.</p>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuBtn = document.getElementById('menuBtn');
+    const menuDropdown = document.getElementById('menuDropdown');
+
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuBtn.classList.toggle('open');
+      menuDropdown.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', menuDropdown.classList.contains('open') ? 'true' : 'false');
+    });
+
+    document.addEventListener('click', () => {
+      menuBtn.classList.remove('open');
+      menuDropdown.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  </script>
 </body>
 </html>
