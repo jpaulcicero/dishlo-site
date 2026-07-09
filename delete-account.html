@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Delete Your Account — Dishlo</title>
+  <meta name="description" content="How to delete your Dishlo account and all associated data." />
+
+  <link rel="icon" type="image/png" href="./assets/Dishlo-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <nav class="legal-nav">
+    <a class="nav-logo" href="./index.html">
+      <img src="./assets/Dishlo-logo.png" alt="Dishlo" />
+      <span>Dishlo</span>
+    </a>
+
+    <div class="nav-menu">
+      <button class="nav-menu-btn" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-dropdown" id="menuDropdown">
+        <a href="./index.html">Home</a>
+        <a href="./privacy.html">Privacy Policy</a>
+        <a href="./terms.html">Terms of Service</a>
+        <a href="./delete-account.html" class="nav-active">Delete Account</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>Delete Your Account</h1>
+    <p>How to permanently delete your Dishlo account and data.</p>
+  </div>
+
+  <main class="content">
+    <h2>Option 1 — Delete in the App (instant)</h2>
+    <p>
+      Open Dishlo and go to <strong>Account &rarr; Delete Account</strong>. Deletion is
+      immediate and permanent.
+    </p>
+
+    <h2>Option 2 — Delete by Email</h2>
+    <p>
+      If you no longer have the app installed, email us at
+      <a href="mailto:dishlo.app@gmail.com?subject=Account%20Deletion%20Request">dishlo.app@gmail.com</a>
+      from the email address on your account with the subject
+      "Account Deletion Request." We will process your request within 30 days.
+    </p>
+
+    <h2>What Gets Deleted</h2>
+    <p>Account deletion permanently removes:</p>
+    <ul>
+      <li>Your profile (name and email address)</li>
+      <li>All recipes, including AI-generated recipe images</li>
+      <li>All meal plans</li>
+      <li>All grocery lists and Your Items</li>
+      <li>All recipe tags</li>
+    </ul>
+
+    <h2>What May Be Retained</h2>
+    <p>
+      Subscription and transaction records held by the Apple App Store, Google Play, and our
+      subscription processor may be retained as required for financial reporting, fraud
+      prevention, and legal compliance. Dishlo never has your payment card details.
+    </p>
+
+    <div class="legal-warning">
+      IMPORTANT: DELETING YOUR ACCOUNT DOES NOT CANCEL AN ACTIVE SUBSCRIPTION. CANCEL YOUR
+      SUBSCRIPTION IN YOUR APP STORE'S SUBSCRIPTION SETTINGS BEFORE OR AFTER DELETING YOUR
+      ACCOUNT TO AVOID FUTURE CHARGES.
+    </div>
+
+    <p>
+      How to cancel: <strong>Google Play</strong> — Play Store &rarr; Profile &rarr; Payments
+      &amp; subscriptions &rarr; Subscriptions. <strong>Apple</strong> — Settings &rarr; your
+      name &rarr; Subscriptions.
+    </p>
+
+    <p>
+      Questions? Contact us at
+      <a href="mailto:dishlo.app@gmail.com">dishlo.app@gmail.com</a>. See also our
+      <a href="./privacy.html">Privacy Policy</a>.
+    </p>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="./index.html">Home</a>
+      <a href="./privacy.html">Privacy Policy</a>
+      <a href="./terms.html">Terms of Service</a>
+      <a href="./delete-account.html">Delete Account</a>
+      <a href="mailto:dishlo.app@gmail.com">Contact</a>
+    </div>
+
+    <p class="footer-copy">&copy; <span id="year"></span> Dishlo. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuBtn = document.getElementById('menuBtn');
+    const menuDropdown = document.getElementById('menuDropdown');
+
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuBtn.classList.toggle('open');
+      menuDropdown.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', menuDropdown.classList.contains('open') ? 'true' : 'false');
+    });
+
+    document.addEventListener('click', () => {
+      menuBtn.classList.remove('open');
+      menuDropdown.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  </script>
+</body>
+</html>
