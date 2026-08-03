@@ -43,13 +43,14 @@
   </div>
 
   <main class="content">
-    <span class="effective-date">Last Updated: July 9, 2026</span>
+    <span class="effective-date">Last Updated: August 3, 2026</span>
 
     <h2>1. Introduction</h2>
     <p>
-      Dishlo ("we," "our," or "us") is a mobile application that helps you save recipes,
-      plan meals, and generate grocery lists. This Privacy Policy explains what information
-      we collect, how we use it, and your rights regarding your data.
+      Dishlo is a mobile application that helps you save recipes, plan meals, and generate
+      grocery lists. Dishlo is operated by Cicero Holdings LLC ("we," "our," or "us"), which is
+      responsible for the personal information described in this policy. This Privacy Policy
+      explains what information we collect, how we use it, and your rights regarding your data.
     </p>
     <p>
       By using Dishlo, you agree to the practices described in this policy.
@@ -58,27 +59,34 @@
     <h2>2. Information We Collect</h2>
 
     <h3>2.1 Account Information</h3>
-    <p>When you create an account, we collect:</p>
+    <p>Dishlo requires an account to use its features. When you create an account, we collect:</p>
     <ul>
       <li><strong>Email address</strong> — used to identify your account and send verification and password-reset emails</li>
       <li><strong>Full name</strong> — used to personalize your experience</li>
     </ul>
 
     <h3>2.2 Content You Create</h3>
-    <p>All content you create inside Dishlo is stored and associated with your account:</p>
+    <p>Content you create inside Dishlo is stored and associated with your account:</p>
     <ul>
       <li><strong>Recipes</strong> — names, ingredients, instructions, serving sizes, recipe type, nutrition information, source URLs used as references, and AI-generated concept images</li>
       <li><strong>Meal plans</strong> — dates, meal times, servings, and the recipes assigned to each slot</li>
       <li><strong>Grocery lists</strong> — items, quantities, units, categories, notes, and check-off status</li>
       <li><strong>Recipe tags</strong> — labels you create to organize your recipes</li>
-      <li><strong>Your Items</strong> — a personal catalog of custom grocery items you've added</li>
     </ul>
+    <p>
+      "Your Items" — a personal catalog of custom grocery items — is stored only locally on
+      your device and is not transmitted to or stored on our servers.
+    </p>
 
     <h3>2.3 Uploaded Files</h3>
     <p>
       If you use the scan-a-recipe feature, you may upload screenshots, photos, or PDF files
       containing recipe content. These files are temporarily processed to perform text extraction
-      and are deleted promptly after processing completes. They are not used for any other purpose.
+      and are deleted promptly after processing completes, whether processing succeeds or fails.
+      When you select a photo or PDF, your device also places a temporary copy in Dishlo’s private
+      storage area on the device; Dishlo deletes that copy once you save the recipe, and also if you
+      leave the add-recipe screen without saving. We do not retain the original filenames of the files
+      you upload, and the files are not used for any other purpose.
     </p>
 
     <h3>2.4 Purchase and Subscription Information</h3>
@@ -97,24 +105,31 @@
       data, contacts, advertising identifiers, or behavioral tracking data. Reminders shown by
       Dishlo are generated locally on your device; we do not collect push notification tokens.
     </p>
-
-    <h3>2.6 Using Dishlo Without an Account</h3>
     <p>
-      Some Dishlo features can be used before creating an account. In that case, your recipes,
-      meal plans, and grocery lists are stored only locally on your device, along with a randomly
-      generated identifier used solely to organize that local data. This local data is not
-      transmitted to our servers. If you later create an account, content you choose to sync
-      is then stored with your account as described in this policy.
+      When your device communicates with our servers, our hosting and infrastructure providers
+      may process limited technical information, such as your IP address, in server logs for
+      security, abuse prevention, and operational purposes. We do not use this information to
+      track you or build a profile of you.
+    </p>
+
+    <h3>2.6 Local Data on Your Device</h3>
+    <p>
+      To support offline use and app performance, Dishlo stores a local copy of your data
+      (such as recipes, meal plans, grocery lists, and "Your Items") on your device, along with
+      a randomly generated identifier used solely to organize that local data. This local data
+      is private to your device. When you sign out, Dishlo clears the local data that could otherwise
+      be visible to the next person who signs in on that device. When you delete your account, Dishlo
+      removes its local data from the device, as described in Sections 5 and 6.
     </p>
 
     <h2>3. How We Use Your Information</h2>
     <p>We use your information to provide and improve Dishlo's features:</p>
     <ul>
       <li><strong>To operate your account</strong> — authenticate you, store your data, and sync it across your devices</li>
-      <li><strong>To parse recipes</strong> — when you paste or type actual recipe text, we send that content to OpenAI's API to extract structured recipe data</li>
+      <li><strong>To parse and structure recipes</strong> — when you paste or type actual recipe text, we send that content to OpenAI's API to extract structured recipe data (name, ingredients, instructions, and servings), to organize ingredients for grocery-list generation, and to estimate approximate nutrition information</li>
       <li><strong>To extract text from photos and PDFs</strong> — when you upload a screenshot, photo, or PDF, we send the file to Google Cloud Vision to read the text</li>
-      <li><strong>To generate recipe images</strong> — we send a description of your recipe to Google's Gemini API to generate an original concept image</li>
-      <li><strong>To generate grocery lists</strong> — we aggregate ingredients from your planned meals within our own servers; no AI is involved in this process</li>
+      <li><strong>To generate recipe images</strong> — we send a short description of your recipe (its title and key ingredients) to Google's Gemini API to generate an original concept image</li>
+      <li><strong>To generate grocery lists</strong> — we aggregate ingredients from your planned meals within our own servers using deterministic logic; no AI is involved in generating the grocery list itself</li>
       <li><strong>To manage your subscription</strong> — validate purchases and determine your access level, as described in Section 2.4</li>
       <li><strong>To send transactional emails</strong> — verification emails and password-reset links via Firebase</li>
     </ul>
@@ -160,7 +175,7 @@
         </tr>
         <tr>
           <td>OpenAI</td>
-          <td>Recipe text parsing</td>
+          <td>Recipe text parsing, ingredient structuring, and nutrition estimation</td>
           <td><a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">openai.com/policies/privacy-policy</a></td>
         </tr>
         <tr>
@@ -188,19 +203,19 @@
 
     <p>
       When you use features that involve these services, relevant data such as recipe text,
-      generated recipe descriptions, or uploaded files is transmitted to them. We do not share
-      your account information, such as your name or email address, with OpenAI or Google for
-      AI or OCR processing features. Content submitted to OpenAI and Google through Dishlo is
-      transmitted via their business APIs, which do not use API-submitted content to train
-      their models by default.
+      generated recipe descriptions, or uploaded files is transmitted to them. We do not send
+      your account information, such as your name or email address, to OpenAI or Google as part
+      of the AI or OCR processing features; only recipe content is sent. Content submitted to
+      OpenAI and Google through Dishlo is transmitted via their business APIs, which do not use
+      API-submitted content to train their models by default.
     </p>
 
     <h2>5. Data Storage and Security</h2>
     <ul>
       <li>Your recipes, meal plans, grocery lists, tags, and profile are stored in Google Firestore, hosted in Google Cloud.</li>
-      <li>A local copy of your data may be cached on your device to allow offline use. This data is private to your device and your account.</li>
+      <li>A local copy of your data may be cached on your device to allow offline use. This data is private to your device. Signing out clears the local data that could otherwise be visible to the next person signing in on that device, and deleting your account removes Dishlo’s local data from the device.</li>
       <li>Uploaded photos and PDFs used for OCR are temporarily stored and deleted promptly after text extraction is complete.</li>
-      <li>AI-generated recipe concept images are stored in Google Cloud Storage and served via unguessable, tokenized links associated with your recipes.</li>
+      <li>AI-generated recipe concept images are stored in Google Cloud Storage and served through a private link containing a long, randomly generated token. The link does not expire on its own; the token cannot be guessed, and anyone who does not have the link cannot access the image. When you delete a recipe or your account, the underlying image file is deleted, which permanently disables its link.</li>
       <li>All communication between the app and our servers uses HTTPS encryption.</li>
       <li>Your recipes, meal plans, and grocery lists are private to your account. No other Dishlo user can see them.</li>
     </ul>
@@ -212,15 +227,17 @@
     </p>
     <p>
       To delete your entire account and all associated data, use <strong>Account &rarr; Delete
-      Account</strong> in the app — deletion is immediate and permanent. If you no longer have
-      the app installed, email us at the address in Section 10 and we will process your request
-      within 30 days. See our <a href="./delete-account.html">account deletion page</a> for details.
+      Account</strong> in the app. When you do, we remove your profile, recipes, meal plans,
+      grocery lists, tags, and stored recipe images, delete your local data from the device, and
+      delete your authentication record. Your data is removed from the app right away; residual
+      backup copies retained by our storage provider are permanently purged within a short
+      period (generally within about 7 days). If you no longer have the app installed, email us
+      at the address in Section 10 and we will process your request within 30 days. See our
+      <a href="./delete-account.html">account deletion page</a> for details.
     </p>
     <p>
-      Account deletion removes your profile, recipes, meal plans, grocery lists, tags, and
-      stored recipe images. Subscription and transaction records held by the app stores and
-      our subscription processor may be retained as required for financial reporting, fraud
-      prevention, and legal compliance.
+      Subscription and transaction records held by the app stores and our subscription processor
+      may be retained as required for financial reporting, fraud prevention, and legal compliance.
     </p>
     <p>
       Files uploaded for text extraction are deleted promptly after processing completes and
@@ -261,7 +278,7 @@
       or deletion, please contact:
     </p>
     <p>
-      <strong>Dishlo</strong><br />
+      <strong>Cicero Holdings LLC (operator of Dishlo)</strong><br />
       Email: <a href="mailto:dishlo.app@gmail.com">dishlo.app@gmail.com</a>
     </p>
     <p style="margin-top: 32px; font-style: italic; font-size: 0.88rem; color: var(--text-muted);">
