@@ -5,6 +5,653 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Dishlo — Save recipes. Plan meals. Your grocery list writes itself.</title>
+  <meta name="description" content="Dishlo turns the recipes you save into a weekly meal plan and one organized grocery list. Snap, screenshot, paste, or upload a PDF. Now on Google Play — 14-day free trial." />
+  <meta name="theme-color" content="#264D2C" />
+  <link rel="canonical" href="https://www.dishlo.com/" />
+
+  <meta property="og:site_name" content="Dishlo" />
+  <meta property="og:title" content="Dishlo — Your grocery list writes itself." />
+  <meta property="og:description" content="Save recipes from screenshots, photos, or PDFs. Plan your week. Dishlo builds your grocery list automatically. Now on Google Play." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.dishlo.com/" />
+  <meta property="og:image" content="https://www.dishlo.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dishlo — Your grocery list writes itself." />
+  <meta name="twitter:description" content="Save recipes. Plan meals. One organized grocery list. Now on Google Play." />
+  <meta name="twitter:image" content="https://www.dishlo.com/assets/og-image.png" />
+
+  <link rel="icon" type="image/png" href="./assets/Dishlo-logo.png" />
+  <link rel="apple-touch-icon" href="./assets/Dishlo-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MobileApplication",
+        "name": "Dishlo",
+        "operatingSystem": "ANDROID",
+        "applicationCategory": "LifestyleApplication",
+        "description": "Save recipes, plan meals, and generate grocery lists automatically from your meal plan.",
+        "url": "https://www.dishlo.com/",
+        "installUrl": "https://play.google.com/store/apps/details?id=com.jpaulcicero.dishloapp",
+        "image": "https://www.dishlo.com/assets/Dishlo-logo.png",
+        "offers": {
+          "@type": "Offer",
+          "price": "6.99",
+          "priceCurrency": "USD",
+          "description": "Monthly subscription with a 14-day free trial"
+        },
+        "publisher": { "@type": "Organization", "name": "Cicero Holdings LLC" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Where can I get Dishlo?", "acceptedAnswer": { "@type": "Answer", "text": "Dishlo is available now on Google Play for Android. An iPhone version is planned." } },
+          { "@type": "Question", "name": "How much does Dishlo cost?", "acceptedAnswer": { "@type": "Answer", "text": "Dishlo is $6.99 per month after a 14-day free trial. Cancel during the trial and you pay nothing." } },
+          { "@type": "Question", "name": "Can Dishlo import a recipe from a link?", "acceptedAnswer": { "@type": "Answer", "text": "No, and that is deliberate. Dishlo does not scrape websites. You add recipes yourself from a photo, screenshot, pasted text, or PDF." } },
+          { "@type": "Question", "name": "Does Dishlo work offline?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Dishlo is offline-first: changes save on your device and sync when you reconnect." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <nav class="home-nav">
+    <a class="nav-logo" href="./index.html">
+      <img src="./assets/Dishlo-logo.png" alt="Dishlo logo" />
+      <span>Dishlo</span>
+    </a>
+
+    <div class="nav-right">
+      <a class="nav-cta" href="https://play.google.com/store/apps/details?id=com.jpaulcicero.dishloapp&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dnav" rel="noopener">Get it on Google Play</a>
+
+      <div class="nav-menu">
+        <button class="nav-menu-btn" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-dropdown" id="menuDropdown">
+          <a href="./index.html" class="nav-active">Home</a>
+          <a href="#how">How it works</a>
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="./privacy.html">Privacy Policy</a>
+          <a href="./terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">Recipe box &middot; Meal planner &middot; Grocery list</p>
+
+        <h1 class="hero-headline">Your grocery list<br /><em>writes itself.</em></h1>
+
+        <div class="hero-divider">
+          <div class="hero-divider-line"></div>
+          <div class="hero-divider-dot"></div>
+          <div class="hero-divider-line"></div>
+        </div>
+
+        <p class="hero-tagline">
+          Save recipes from screenshots, photos, or PDFs. Plan your week.
+          Dishlo turns every planned meal into one organized grocery list —
+          combined, categorized, and ready for the store.
+        </p>
+
+        <div class="hero-cta">
+          <div class="store-btns">
+          <a class="store-btn is-live" href="https://play.google.com/store/apps/details?id=com.jpaulcicero.dishloapp&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dhero" rel="noopener" aria-label="Get Dishlo on Google Play">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M3.18 23.76c.3.16.63.24.97.23.4 0 .82-.12 1.22-.35l13.2-7.57-2.92-2.93-12.47 10.62zm-1.4-20.45C1.46 3.7 1.25 4.2 1.25 4.85v14.3c0 .65.21 1.15.53 1.54l.07.07L9.7 12.92v-.2L1.85 3.24l-.07.07zm18.25 8.17l-2.45-1.41-3.26 3.26 3.26 3.26 2.47-1.41c.7-.4 1.1-.93 1.1-1.85s-.42-1.44-1.12-1.85zM4.15.33L17.35 7.9l-2.92 2.92L1.96 1.24C2.36.99 2.78.87 3.18.87c.34 0 .67.08.97.24v-.78z"/>
+          </svg>
+            <div class="store-btn-inner">
+              <small>Get it on</small>
+              <strong>Google Play</strong>
+            </div>
+          </a>
+          <div class="store-btn is-soon" aria-disabled="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+            <div class="store-btn-inner">
+              <small>iPhone — coming soon</small>
+              <strong>App Store</strong>
+            </div>
+          </div>
+        </div>
+          <span class="hero-cta-note">Now on Google Play &middot; 14-day free trial &middot; Cancel anytime</span>
+        </div>
+
+        <div class="hero-flow" aria-label="How Dishlo works, in five steps">
+          <span class="flow-chip">Save</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-chip">Plan</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-chip">Generate</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-chip">Shop</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-chip">Cook</span>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="ph-head">
+              <div class="ph-title">Grocery List</div>
+              <div class="ph-sub">Mon – Sun &middot; 7 meals</div>
+            </div>
+            <div class="ph-group">Produce</div>
+            <div class="ph-item done"><i></i><span>Yellow onions</span><b>3</b></div>
+            <div class="ph-item"><i></i><span>Roma tomatoes</span><b>2 lb</b></div>
+            <div class="ph-item"><i></i><span>Fresh basil</span><b>1 bunch</b></div>
+            <div class="ph-group">Dairy &amp; Eggs</div>
+            <div class="ph-item"><i></i><span>Parmesan</span><b>8 oz</b></div>
+            <div class="ph-item done"><i></i><span>Large eggs</span><b>1 doz</b></div>
+            <div class="ph-group">Pantry</div>
+            <div class="ph-item"><i></i><span>Spaghetti</span><b>1 lb</b></div>
+            <div class="ph-item"><i></i><span>Olive oil</span><b>1 bottle</b></div>
+            <div class="ph-foot">Pantry Check on &middot; 4 items hidden</div>
+          </div>
+        </div>
+        <div class="hero-bubble">7 meals → 1 list</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="how-section" id="how">
+    <div class="container">
+      <div class="section-label reveal">The Flow</div>
+
+      <h2 class="section-title reveal reveal-delay-1">
+        From "that looks good"<br />
+        to dinner on the table.
+      </h2>
+
+      <p class="section-body reveal reveal-delay-2">
+        You already save recipes — in screenshots, camera rolls, and saved posts.
+        Dishlo is where they stop being screenshots and start being dinner.
+      </p>
+
+      <div class="steps-grid reveal reveal-delay-3">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-icon">📸</div>
+          <div class="step-title">Save</div>
+          <p class="step-desc">
+            Snap a photo, drop in a screenshot, paste recipe text, or upload a PDF.
+            Dishlo extracts the ingredients, instructions, and servings — and estimates nutrition.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-icon">📅</div>
+          <div class="step-title">Plan</div>
+          <p class="step-desc">
+            Drop recipes onto your week — breakfast, lunch, dinner, or snack —
+            and set servings for each meal. Your dashboard shows what's cooking today.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-icon">🛒</div>
+          <div class="step-title">Generate</div>
+          <p class="step-desc">
+            Pick a date range and tap once. Dishlo combines every ingredient from every
+            planned meal into a single list — deduplicated, unit-converted, and sorted by aisle.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="step-num">04</div>
+          <div class="step-icon">🏪</div>
+          <div class="step-title">Shop</div>
+          <p class="step-desc">
+            Shop Mode is built for one hand and a full cart: big legible text,
+            tap-to-check items, and a screen that stays awake in the aisle.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="step-num">05</div>
+          <div class="step-icon">🍳</div>
+          <div class="step-title">Cook</div>
+          <p class="step-desc">
+            Cook Mode keeps the recipe readable while your hands are busy — timers,
+            a unit converter, servings scaling, and scroll controls that don't need a swipe.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-label reveal">Features</div>
+
+      <h2 class="section-title reveal reveal-delay-1">
+        Built for real cooks,<br />
+        real families, real life.
+      </h2>
+
+      <p class="section-body reveal reveal-delay-2">
+        Every feature in Dishlo exists to shrink the distance between a recipe
+        you want to save and a meal you actually put on the table.
+      </p>
+
+      <div class="features-grid">
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">📖</div>
+          <div class="feature-title">Recipe Library</div>
+          <p class="feature-desc">
+            Your whole collection in one searchable place — not scattered across
+            screenshots and bookmarks.
+          </p>
+          <div class="feature-bullets">
+            <div class="feature-bullet">Add from a snap, screenshot, pasted text, or PDF</div>
+            <div class="feature-bullet">Review the extracted text before saving</div>
+            <div class="feature-bullet">AI-generated concept image for every recipe</div>
+            <div class="feature-bullet">Estimated nutrition per serving</div>
+            <div class="feature-bullet">Tag, search, and filter your way</div>
+          </div>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">📅</div>
+          <div class="feature-title">Meal Planning</div>
+          <p class="feature-desc">
+            A rolling calendar centered on today, plus a dashboard that answers
+            one question: what do I need today?
+          </p>
+          <div class="feature-bullets">
+            <div class="feature-bullet">Assign recipes to Breakfast, Lunch, Dinner, or Snack</div>
+            <div class="feature-bullet">Set servings per planned meal</div>
+            <div class="feature-bullet">Today's meals and list, front and center on your dashboard</div>
+            <div class="feature-bullet">View, cook, or remove meals from Quick Actions</div>
+          </div>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-icon">🛒</div>
+          <div class="feature-title">Smart Grocery Lists</div>
+          <p class="feature-desc">
+            The headline act. Choose a date range, tap Generate, and the list
+            builds itself from your planned meals.
+          </p>
+          <div class="feature-bullets">
+            <div class="feature-bullet">Ingredients combined, converted, and categorized by aisle</div>
+            <div class="feature-bullet">Pantry Check hides what you already have</div>
+            <div class="feature-bullet">Included Meals shows exactly which recipes built the list</div>
+            <div class="feature-bullet">Add extras and one-offs any time</div>
+            <div class="feature-bullet">Past lists saved automatically</div>
+          </div>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">🏪</div>
+          <div class="feature-title">Shop Mode</div>
+          <p class="feature-desc">
+            A distraction-free shopping view designed for one hand, mid-aisle,
+            with a cart in the other.
+          </p>
+          <div class="feature-bullets">
+            <div class="feature-bullet">Large, legible text with S, M, L, XL sizes</div>
+            <div class="feature-bullet">Tap items to check them off as you go</div>
+            <div class="feature-bullet">Screen stays awake while you shop</div>
+            <div class="feature-bullet">Hide checked items or reset the trip</div>
+            <div class="feature-bullet">Copy the whole list, or any single item, in a tap</div>
+          </div>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">🍳</div>
+          <div class="feature-title">Cook Mode</div>
+          <p class="feature-desc">
+            A hands-free cooking companion that keeps the recipe readable
+            while your hands are covered in flour.
+          </p>
+          <div class="feature-bullets">
+            <div class="feature-bullet">Ingredients and instructions in separate tabs</div>
+            <div class="feature-bullet">Side scroll controls — no swiping with messy hands</div>
+            <div class="feature-bullet">Built-in timer and unit converter</div>
+            <div class="feature-bullet">Scale servings and the quantities follow</div>
+            <div class="feature-bullet">Status ribbon tracks your timer at a glance</div>
+          </div>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-icon">🔄</div>
+          <div class="feature-title">Your Items &amp; Offline-First</div>
+          <p class="feature-desc">
+            Your staples, remembered. Your data, available even when
+            the store's Wi-Fi isn't.
+          </p>
+          <div class="feature-bullets">
+            <div class="feature-bullet">Your Items keeps staples one tap from any list</div>
+            <div class="feature-bullet">Everything saves locally first — no signal required</div>
+            <div class="feature-bullet">Changes sync automatically when you reconnect</div>
+            <div class="feature-bullet">Secure account with email and password</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-section">
+    <div class="container">
+      <div class="section-label section-label-light reveal">Why Dishlo</div>
+
+      <h2 class="section-title section-title-light reveal reveal-delay-1">
+        Your recipes. Your data.<br />
+        Actually yours.
+      </h2>
+
+      <div class="trust-grid reveal reveal-delay-2">
+        <div class="trust-item">
+          <div class="trust-title">No scraping. Ever.</div>
+          <p>
+            Dishlo never pulls recipes from websites behind your back. You add every recipe
+            yourself — a snap, a screenshot, pasted text, or a PDF — so your collection is
+            built honestly, from content you have access to.
+          </p>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-title">No ads. No selling data.</div>
+          <p>
+            Dishlo is paid for by one thing: your subscription. Not advertisers,
+            not data brokers. We don't sell your data, and we never will.
+          </p>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-title">Private by default.</div>
+          <p>
+            Your recipes, plans, and lists are visible to you and no one else.
+            No public profiles, no social feed, no strangers in your kitchen.
+          </p>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-title">Works without signal.</div>
+          <p>
+            Offline-first means your list loads in the concrete basement of any
+            grocery store. Changes sync when you're back online.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-label reveal">Pricing</div>
+
+      <h2 class="section-title reveal reveal-delay-1">
+        One plan. Everything included.
+      </h2>
+
+      <div class="pricing-card reveal reveal-delay-2">
+        <div class="pricing-trial">14-day free trial</div>
+        <div class="pricing-price">$6.99<span>/month</span></div>
+        <ul class="pricing-list">
+          <li>Unlimited recipes, plans, and grocery lists</li>
+          <li>Recipe capture from snaps, screenshots, text, and PDFs</li>
+          <li>Shop Mode &amp; Cook Mode included</li>
+          <li>No ads — your subscription is the business model</li>
+        </ul>
+        <p class="pricing-fine">
+          Billed through the App Store or Google Play. Cancel anytime in your
+          app store's subscription settings — if you cancel during the trial,
+          you pay nothing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-label reveal">Questions</div>
+
+      <h2 class="section-title reveal reveal-delay-1">
+        Fair questions,<br />straight answers.
+      </h2>
+
+      <div class="faq-list reveal reveal-delay-2">
+        <details class="faq-item">
+          <summary>Where can I get Dishlo?</summary>
+          <p>
+            Dishlo is live on
+            <a href="https://play.google.com/store/apps/details?id=com.jpaulcicero.dishloapp&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dfaq" rel="noopener">Google Play</a> for Android.
+            An iPhone version is planned —
+            <a href="mailto:dishlo.app@gmail.com?subject=Notify%20me%20when%20Dishlo%20is%20on%20iPhone&amp;body=Please%20let%20me%20know%20when%20Dishlo%20is%20available%20on%20iPhone.">email us</a>
+            and we'll let you know when it arrives.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How do I get recipes into Dishlo?</summary>
+          <p>
+            Four ways: snap a photo of a cookbook page, add a screenshot from your camera roll,
+            paste recipe text, or upload a PDF. Dishlo reads it, extracts the ingredients and
+            instructions, and lets you review everything before saving.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can Dishlo import a recipe from a link?</summary>
+          <p>
+            No — and that's deliberate. Dishlo doesn't scrape websites or fetch content from
+            URLs. Recipes belong to the people who wrote them, so you add the content yourself
+            from sources you have access to. The URL field exists to credit and remember where
+            a recipe came from.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How does the grocery list actually work?</summary>
+          <p>
+            You pick a date range and Dishlo gathers every ingredient from every meal planned
+            in that range, combines duplicates, converts units so amounts add up properly, and
+            sorts everything by store category. Pantry Check lets you hide things you already
+            have before you head out.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Does it work offline?</summary>
+          <p>
+            Yes. Dishlo is offline-first: your recipes, plans, and lists are stored on your
+            device and everything you change saves locally, then syncs automatically when
+            you're back online.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What happens to my data?</summary>
+          <p>
+            It stays yours. No ads, no selling data, and your content is private to your
+            account. Read the plain-English details in our
+            <a href="./privacy.html">Privacy Policy</a>.
+          </p>
+        </details>
+
+        
+
+        <details class="faq-item">
+          <summary>How much does it cost, and how do I cancel?</summary>
+          <p>
+            Dishlo is $6.99 a month after a 14-day free trial. Cancel any time in the
+            Google Play subscriptions screen — if you cancel during the trial, you pay nothing.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can I delete my account and data?</summary>
+          <p>
+            Yes, any time — in the app under Account, or by email. See
+            <a href="./delete-account.html">how to delete your account</a>.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="disclaimer-section">
+    <div class="disclaimer-card reveal">
+      <h2>Helpful tools, with clear responsibility.</h2>
+      <p>
+        Nutrition estimates in Dishlo are AI-generated approximations for general reference —
+        not for medical, dietary, or allergy decisions. Always verify ingredients, allergens,
+        and food safety before cooking or serving. AI-generated recipe images are concept
+        visuals and may not match the final dish. Full details in our
+        <a href="./terms.html">Terms of Service</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="coming-section" id="get-dishlo">
+    <div class="container">
+      <div class="section-label reveal">Get Dishlo</div>
+
+      <h2 class="section-title reveal reveal-delay-1">
+        Be cooking from Dishlo<br />
+        this week.
+      </h2>
+
+      <p class="section-body reveal reveal-delay-2">
+        Download Dishlo from Google Play, save your first recipe,
+        and let the grocery list write itself. Your 14-day free trial starts when you sign up.
+      </p>
+
+      <div class="hero-cta reveal reveal-delay-3">
+        <div class="store-btns">
+          <a class="store-btn is-live" href="https://play.google.com/store/apps/details?id=com.jpaulcicero.dishloapp&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dfooter" rel="noopener" aria-label="Get Dishlo on Google Play">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M3.18 23.76c.3.16.63.24.97.23.4 0 .82-.12 1.22-.35l13.2-7.57-2.92-2.93-12.47 10.62zm-1.4-20.45C1.46 3.7 1.25 4.2 1.25 4.85v14.3c0 .65.21 1.15.53 1.54l.07.07L9.7 12.92v-.2L1.85 3.24l-.07.07zm18.25 8.17l-2.45-1.41-3.26 3.26 3.26 3.26 2.47-1.41c.7-.4 1.1-.93 1.1-1.85s-.42-1.44-1.12-1.85zM4.15.33L17.35 7.9l-2.92 2.92L1.96 1.24C2.36.99 2.78.87 3.18.87c.34 0 .67.08.97.24v-.78z"/>
+          </svg>
+            <div class="store-btn-inner">
+              <small>Get it on</small>
+              <strong>Google Play</strong>
+            </div>
+          </a>
+          <div class="store-btn is-soon" aria-disabled="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+            <div class="store-btn-inner">
+              <small>iPhone — coming soon</small>
+              <strong>App Store</strong>
+            </div>
+          </div>
+        </div>
+        <span class="hero-cta-note">14-day free trial &middot; Cancel anytime &middot; iPhone coming soon</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">
+      <img src="./assets/Dishlo-logo.png" alt="Dishlo" />
+      <span>Dishlo</span>
+    </div>
+
+    <div class="footer-links">
+      <a href="./privacy.html">Privacy Policy</a>
+      <a href="./terms.html">Terms of Service</a>
+      <a href="./delete-account.html">Delete Account</a>
+      <a href="mailto:dishlo.app@gmail.com">Contact</a>
+    </div>
+
+    <p class="footer-copy">
+      &copy; <span id="year"></span> Dishlo. All rights reserved.<br />
+      <span>Save. Plan. Generate. Shop. Cook.</span>
+    </p>
+  </footer>
+
+  <div class="sticky-cta" id="stickyCta" aria-hidden="true">
+    <span>Dishlo is on Google Play</span>
+    <a class="sticky-cta-btn" href="https://play.google.com/store/apps/details?id=com.jpaulcicero.dishloapp&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dsticky" rel="noopener" tabindex="-1">Get the app</a>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    reveals.forEach(el => observer.observe(el));
+
+    const menuBtn = document.getElementById('menuBtn');
+    const menuDropdown = document.getElementById('menuDropdown');
+
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuBtn.classList.toggle('open');
+      menuDropdown.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', menuDropdown.classList.contains('open') ? 'true' : 'false');
+    });
+
+    menuDropdown.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        menuBtn.classList.remove('open');
+        menuDropdown.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Sticky mobile CTA: show after the hero, hide once the final CTA is on screen
+    const sticky = document.getElementById('stickyCta');
+    const hero = document.querySelector('.hero');
+    const finalCta = document.getElementById('get-dishlo');
+    let heroGone = false, finalSeen = false;
+    function syncSticky() {
+      const on = heroGone && !finalSeen;
+      sticky.classList.toggle('show', on);
+      sticky.setAttribute('aria-hidden', on ? 'false' : 'true');
+      sticky.querySelector('a').tabIndex = on ? 0 : -1;
+    }
+    new IntersectionObserver(([en]) => { heroGone = !en.isIntersecting; syncSticky(); }).observe(hero);
+    new IntersectionObserver(([en]) => { finalSeen = en.isIntersecting; syncSticky(); }, { threshold: 0.2 }).observe(finalCta);
+
+    document.addEventListener('click', () => {
+      menuBtn.classList.remove('open');
+      menuDropdown.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Dishlo — Save recipes. Plan meals. Your grocery list writes itself.</title>
   <meta name="description" content="Save recipes from screenshots, photos, or PDFs. Plan your week. Dishlo turns every planned meal into one organized grocery list — combined, categorized, and ready for the store. 14-day free trial." />
 
   <meta property="og:title" content="Dishlo — Your grocery list writes itself." />

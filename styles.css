@@ -1366,3 +1366,390 @@ footer {
     text-align: center;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════════
+ * v3 additions — live-on-Google-Play launch
+ * (nav CTA, split hero with phone preview, live store buttons,
+ *  sticky mobile CTA, contrast fixes)
+ * ══════════════════════════════════════════════════════════════════ */
+
+/* ── Nav CTA (replaces "Coming Soon" badge) ─────────────────────── */
+.nav-cta {
+  font-family: var(--body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--green-dark);
+  background: var(--yellow);
+  padding: 8px 18px;
+  border-radius: 99px;
+  white-space: nowrap;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.nav-cta:hover {
+  color: var(--green-dark);
+  background: var(--yellow-light);
+  transform: translateY(-1px);
+}
+
+.nav-cta:focus-visible,
+.store-btn.is-live:focus-visible,
+.sticky-cta-btn:focus-visible {
+  outline: 3px solid var(--beige);
+  outline-offset: 3px;
+}
+
+/* ── Split hero ─────────────────────────────────────────────────── */
+.hero {
+  min-height: 0;
+  justify-content: flex-start;
+  padding: 120px 24px 88px;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-copy .hero-headline {
+  max-width: none;
+}
+
+.hero-copy .hero-cta {
+  animation-delay: 0.3s;
+}
+
+.hero-copy .hero-flow {
+  margin: 36px 0 0;
+}
+
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  animation: heroFadeUp 0.9s 0.3s ease both;
+}
+
+@media (min-width: 900px) {
+  .hero {
+    padding: 132px 40px 96px;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
+  }
+
+  .hero-copy {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .hero-copy .hero-cta {
+    align-items: flex-start;
+  }
+
+  .hero-copy .store-btns {
+    justify-content: flex-start;
+  }
+
+  .hero-copy .hero-flow {
+    justify-content: flex-start;
+  }
+}
+
+/* ── Live store buttons ─────────────────────────────────────────── */
+.store-btn.is-live {
+  cursor: pointer;
+  opacity: 1;
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--green-dark);
+  padding: 14px 28px;
+  box-shadow: 0 6px 24px rgba(245,166,35,0.35);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.store-btn.is-live:hover {
+  color: var(--green-dark);
+  background: var(--yellow-light);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(245,166,35,0.45);
+}
+
+.store-btn.is-live .store-btn-inner small {
+  opacity: 0.8;
+}
+
+.store-btn.is-live .store-btn-inner strong {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.store-btn.is-soon {
+  cursor: default;
+  opacity: 0.6;
+  padding: 14px 24px;
+}
+
+.hero-cta {
+  gap: 16px;
+}
+
+/* ── Phone preview (illustrative) ───────────────────────────────── */
+.phone {
+  position: relative;
+  width: 270px;
+  background: #0f1a11;
+  border-radius: 38px;
+  padding: 11px;
+  box-shadow: 0 40px 90px rgba(0,0,0,0.45), 0 0 0 1px rgba(245,166,35,0.22);
+  transform: rotate(2.5deg);
+}
+
+.phone-notch {
+  position: absolute;
+  top: 17px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 18px;
+  background: #0f1a11;
+  border-radius: 99px;
+  z-index: 2;
+}
+
+.phone-screen {
+  background: var(--beige-light);
+  border-radius: 28px;
+  padding: 44px 16px 16px;
+  min-height: 470px;
+  font-family: var(--body);
+}
+
+.ph-title {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.ph-sub {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.ph-group {
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #8a5a00;
+  margin: 12px 0 4px;
+}
+
+.ph-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--white);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  font-size: 0.78rem;
+  color: var(--text-dark);
+}
+
+.ph-item i {
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid var(--green-mid);
+  border-radius: 50%;
+}
+
+.ph-item span {
+  flex: 1;
+}
+
+.ph-item b {
+  font-weight: 500;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.ph-item.done {
+  opacity: 0.55;
+}
+
+.ph-item.done i {
+  background: var(--green);
+  border-color: var(--green);
+  box-shadow: inset 0 0 0 3px var(--white);
+}
+
+.ph-item.done span {
+  text-decoration: line-through;
+}
+
+.ph-foot {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 0.66rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.hero-bubble {
+  position: absolute;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-165px);
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--green-dark);
+  background: var(--yellow);
+  padding: 10px 18px;
+  border-radius: 99px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 899px) {
+  .hero-bubble {
+    transform: translateX(-150px);
+  }
+}
+
+@media (max-width: 420px) {
+  .phone { width: 244px; }
+  .hero-bubble { transform: translateX(-130px); }
+}
+
+/* ── Sticky mobile CTA ──────────────────────────────────────────── */
+.sticky-cta {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .sticky-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(26,54,32,0.97);
+    border-top: 1px solid rgba(245,166,35,0.3);
+    font-family: var(--body);
+    font-size: 0.9rem;
+    color: var(--beige);
+    transform: translateY(110%);
+    transition: transform 0.25s ease;
+  }
+
+  .sticky-cta.show {
+    transform: translateY(0);
+  }
+
+  .sticky-cta-btn {
+    font-weight: 600;
+    color: var(--green-dark);
+    background: var(--yellow);
+    padding: 10px 20px;
+    border-radius: 99px;
+    white-space: nowrap;
+  }
+
+  .sticky-cta-btn:hover {
+    color: var(--green-dark);
+  }
+
+  footer {
+    padding-bottom: 88px;
+  }
+
+  .nav-cta {
+    padding: 7px 14px;
+    font-size: 0.76rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-cta { display: none; }
+}
+
+/* ── Contrast: yellow labels on light backgrounds ───────────────── */
+.features-section .section-label,
+.pricing-section .section-label,
+.faq-section .section-label {
+  color: #8a5a00;
+}
+
+.features-grid .feature-bullet::before {
+  color: #c98400;
+}
+
+.pricing-list li::before {
+  color: #c98400;
+}
+
+.faq-item summary::after {
+  color: #c98400;
+}
+
+/* ── Tap targets ────────────────────────────────────────────────── */
+.nav-menu-btn {
+  padding: 12px 10px;
+}
+
+.footer-links a {
+  padding: 6px 0;
+}
+
+html {
+  scroll-padding-top: 76px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* ── Hero polish (spacing, headline size, bubble placement) ─────── */
+.hero-copy .hero-headline {
+  font-size: clamp(2.6rem, 6vw, 4.2rem) !important;
+}
+
+.hero-copy .hero-cta {
+  margin-top: 34px;
+}
+
+.hero-bubble {
+  bottom: 96px;
+  transform: translateX(-205px);
+}
+
+@media (max-width: 899px) {
+  .hero-bubble { display: none; }
+}
