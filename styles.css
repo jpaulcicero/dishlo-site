@@ -1844,3 +1844,21 @@ html {
   aspect-ratio: auto;
   object-fit: fill;
 }
+
+/* ── Official Google Play badge (do not recolor or distort) ─────── */
+.play-badge {
+  display: inline-block;
+  line-height: 0;
+  padding: 6px; /* keeps clear space around the badge */
+  border-radius: 12px;
+  transition: transform 0.18s ease;
+}
+.play-badge img {
+  display: block;
+  height: 58px;
+  width: auto;
+}
+.play-badge:hover { transform: translateY(-2px); }
+.play-badge:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+.store-btns { align-items: center; }
+.store-btn.is-soon { min-height: 58px; box-sizing: border-box; }
