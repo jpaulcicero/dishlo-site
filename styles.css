@@ -1862,3 +1862,24 @@ html {
 .play-badge:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
 .store-btns { align-items: center; }
 .store-btn.is-soon { min-height: 58px; box-sizing: border-box; }
+
+/* ── Blog post ──────────────────────────────────────────────────── */
+.post-wrap { padding: 120px 24px 72px; }
+.post { max-width: 720px; margin: 0 auto; font-family: var(--body); font-size: 1.08rem; line-height: 1.75; color: var(--text-dark); }
+.post-header { margin-bottom: 20px; }
+.post-header time { font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase; color: #8a5a00; }
+.post-header h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.6vw, 2.8rem); line-height: 1.2; color: var(--green); margin: 10px 0 14px; }
+.post-header p:last-child { font-size: 1.15rem; color: var(--text-muted); }
+.post-disclosure { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
+.post .post-section { padding: 0; margin-top: 44px; }
+.post h2 { font-family: var(--serif); font-size: 1.6rem; line-height: 1.25; color: var(--green); margin-bottom: 14px; }
+.post p { margin-bottom: 16px; }
+.post a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+.post ul, .post ol { margin: 0 0 18px 1.3em; }
+.post li { margin-bottom: 12px; padding-left: 4px; }
+.post ol li::marker { font-family: var(--serif); font-weight: 700; color: #8a5a00; }
+.post-shots { margin: 32px 0 12px; gap: 40px; }
+.post .shots-note { margin: 0 auto 24px; text-align: center; }
+.post-cta { margin: 24px 0 0; }
+.post-cta .play-badge { padding: 0; }
+.post-cta .play-badge img { height: 64px; }
