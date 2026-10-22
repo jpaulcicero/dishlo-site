@@ -3,7 +3,9 @@
     { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/terms", "destination": "/terms.html" },
     { "source": "/delete-account", "destination": "/delete-account.html" },
-    { "source": "/blog/mealime-closing-october-21", "destination": "/blog/mealime-closing-october-21.html" }
+    { "source": "/blog", "destination": "/blog/index.html" },
+    { "source": "/blog/mealime-closing-october-21", "destination": "/blog/mealime-closing-october-21.html" },
+    { "source": "/blog/how-to-add-recipes-to-dishlo", "destination": "/blog/how-to-add-recipes-to-dishlo.html" }
   ],
   "headers": [
     {

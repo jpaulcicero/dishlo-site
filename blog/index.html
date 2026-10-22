@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Blog | Dishlo</title>
+  <meta name="description" content="News and how-tos from Dishlo, the meal-planning app where you save your own recipes, plan the week, and get one grocery list." />
+  <meta name="theme-color" content="#264D2C" />
+  <link rel="canonical" href="https://www.dishlo.com/blog/" />
+
+  <meta property="og:site_name" content="Dishlo" />
+  <meta property="og:title" content="Blog | Dishlo" />
+  <meta property="og:description" content="News and how-tos from Dishlo, the meal-planning app where you save your own recipes, plan the week, and get one grocery list." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.dishlo.com/blog/" />
+  <meta property="og:image" content="https://www.dishlo.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog | Dishlo" />
+  <meta name="twitter:description" content="News and how-tos from Dishlo, the meal-planning app where you save your own recipes, plan the week, and get one grocery list." />
+  <meta name="twitter:image" content="https://www.dishlo.com/assets/og-image.png" />
+
+  <link rel="icon" type="image/png" href="../assets/Dishlo-logo.png" />
+  <link rel="apple-touch-icon" href="../assets/Dishlo-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Dishlo Blog",
+  "url": "https://www.dishlo.com/blog/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dishlo"
+  }
+}
+  </script>
+</head>
+
+<body>
+  <nav class="home-nav">
+    <a class="nav-logo" href="../index.html">
+      <img src="../assets/Dishlo-logo.png" alt="Dishlo logo" />
+      <span>Dishlo</span>
+    </a>
+
+    <div class="nav-right">
+      <a class="nav-cta" href="https://play.google.com/store/apps/details?id=com.jpaulcicero.dishloapp&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dblog-nav" rel="noopener">Get it on Google Play</a>
+
+      <div class="nav-menu">
+        <button class="nav-menu-btn" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-dropdown" id="menuDropdown">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#how">How it works</a>
+          <a href="../index.html#features">Features</a>
+          <a href="../index.html#pricing">Pricing</a>
+          <a href="../index.html#faq">FAQ</a>
+          <a href="./" class="nav-active">Blog</a>
+          <a href="../privacy.html">Privacy Policy</a>
+          <a href="../terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="post-wrap">
+    <div class="post">
+      <header class="post-header">
+        <h1>From the Dishlo blog</h1>
+        <p><em>News, rescues, and how-tos for people who plan their weeks around real recipes.</em></p>
+      </header>
+
+      <ul class="post-list">
+        <li class="post-card">
+          <p><time datetime="2026-10-22">October 22, 2026</time></p>
+          <h2><a href="how-to-add-recipes-to-dishlo.html">How to Add Recipes to Dishlo: Screenshots, Photos, PDFs, and Pasted Text</a></h2>
+          <p>Dishlo doesn&rsquo;t come with recipes. You bring your own. The four ways in, what it can&rsquo;t read, and an easy way to get started.</p>
+        </li>
+        <li class="post-card">
+          <p><time datetime="2026-10-15">October 15, 2026</time></p>
+          <h2><a href="mealime-closing-october-21.html">Mealime Shut Down on October 21. Here&rsquo;s Where to Take Your Saved Recipes.</a></h2>
+          <p>Mealime shut down October 21, with no recipe export. If you saved your favorites in time, here&rsquo;s where they go next.</p>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-logo">
+      <img src="../assets/Dishlo-logo.png" alt="Dishlo" />
+      <span>Dishlo</span>
+    </div>
+
+    <div class="footer-links">
+      <a href="./">Blog</a>
+      <a href="../privacy.html">Privacy Policy</a>
+      <a href="../terms.html">Terms of Service</a>
+      <a href="../delete-account.html">Delete Account</a>
+      <a href="mailto:dishlo.app@gmail.com">Contact</a>
+    </div>
+
+    <p class="footer-copy">
+      &copy; <span id="year"></span> Dishlo. All rights reserved.<br />
+      <span>Save. Plan. Generate. Shop. Cook.</span>
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuBtn = document.getElementById('menuBtn');
+    const menuDropdown = document.getElementById('menuDropdown');
+    function closeMenu() {
+      menuBtn.classList.remove('open');
+      menuDropdown.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuBtn.classList.toggle('open');
+      menuDropdown.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', menuDropdown.classList.contains('open') ? 'true' : 'false');
+    });
+    menuDropdown.addEventListener('click', (e) => { if (e.target.tagName === 'A') closeMenu(); });
+    document.addEventListener('click', closeMenu);
+  </script>
+</body>
+</html>

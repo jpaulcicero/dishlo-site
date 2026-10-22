@@ -1883,3 +1883,16 @@ html {
 .post-cta { margin: 24px 0 0; }
 .post-cta .play-badge { padding: 0; }
 .post-cta .play-badge img { height: 64px; }
+
+/* ── Blog index + update callout ────────────────────────────────── */
+.post .post-update { background: var(--white); border: 1px solid var(--card-border); border-left: 4px solid var(--yellow); border-radius: var(--radius-md); padding: 18px 22px 2px; margin-top: 28px; }
+.post-list { list-style: none; margin: 36px 0 0; padding: 0; }
+.post-card { background: var(--white); border: 1px solid var(--card-border); border-radius: var(--radius-md); padding: 24px 26px 8px; margin: 0 0 22px; }
+.post-card time { font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: #8a5a00; }
+.post-card h2 { font-size: 1.3rem; margin: 6px 0 10px; }
+.post-card h2 a { text-decoration: none; }
+.post-card h2 a:hover { text-decoration: underline; }
+.post-card p { margin-bottom: 14px; }
+.post-card p:first-child { margin-bottom: 0; }
+.post .post-list { margin: 36px 0 0; padding: 0; }
+.post .post-card { margin: 0 0 22px; padding: 24px 26px 8px; }
